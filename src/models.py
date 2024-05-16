@@ -35,7 +35,7 @@ class Media(Base):
     __tablename__ = 'media'
 
     mediaid = Column(Integer, primary_key=True)
-    format = Column(String(10), nullable=False)
+    type = Column(Enum, nullable=False)
     url = Column(String(50), nullable=False)
     post_id = Column(Integer, ForeignKey('post.postid'))
     post_id_relationship = relationship(Post)
