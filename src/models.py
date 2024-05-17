@@ -9,6 +9,7 @@ Base = declarative_base()
 
 class User(Base):
     __tablename__ = 'user'
+
     userid = Column(Integer, primary_key=True)
     username = Column(String(50), nullable=False)
     firstname = Column(String(50), nullable=False)
@@ -44,7 +45,7 @@ class Comment(Base):
     __tablename__ = 'comment'
 
     commentid = Column(Integer, primary_key=True)
-    comment_text = Column(String(max), nullable=False)
+    comment_text = Column(String(500), nullable=False)
     author_id = Column(Integer, ForeignKey('user.userID'))
     author_id_relationship = relationship(User)
     post_id = Column(Integer, ForeignKey('post.postid'))
